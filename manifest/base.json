@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Schibsted & Vend Blocker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Schibsted & Vend blocker extension",
   "icons": {
     "16": "icons/logo-16.png",
@@ -34,7 +34,11 @@
         "https://minmote.no/*",
         "https://*.minmote.no/*",
         "https://godt.no/*",
-        "https://*.godt.no/*"
+        "https://*.godt.no/*",
+        "https://pent.no/*",
+        "https://*.pent.no/*",
+        "https://tek.no/*",
+        "https://*.tek.no/*"
       ],
       "css": ["content-scripts/schibsted-and-vend-blocker.css"],
       "js": ["content-scripts/schibsted-and-vend-blocker.js"],

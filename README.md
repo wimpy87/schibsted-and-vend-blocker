@@ -1,10 +1,10 @@
 # Schibsted & Vend Blocker
 
-A browser extension (Chromium + Firefox) that removes the cookie/tracking-consent pop-up on ten Nordic news sites and restores the page scrolling that pop-up locks.
+A browser extension (Chromium + Firefox) that removes the cookie/tracking-consent pop-up on fourteen Nordic sites and restores the page scrolling that pop-up locks.
 
 ## Description
 
-On vg.no, aftenposten.no, e24.no, bt.no, aftenbladet.no, aftonbladet.se, svd.se, omni.se, tv4.se, and fotbollskanalen.se (and their subdomains), this extension:
+On vg.no, aftenposten.no, e24.no, bt.no, aftenbladet.no, minmote.no, godt.no, pent.no, tek.no, aftonbladet.se, svd.se, omni.se, tv4.se, and fotbollskanalen.se (and their subdomains, which also cover Vink at vink.aftenposten.no), this extension:
 
 - **Removes the consent iframe.** A `MutationObserver` watches for elements matching Schibsted's markup (`iframe[src*="cmp"]`, or ids starting with `sp_message_iframe_`) and deletes them the instant they're inserted — removing the nearest `sp_message_container_*` wrapper if one exists, otherwise the iframe's immediate parent (never `<body>`). A static stylesheet hides the same elements via `display: none` as a fallback, in case the observer hasn't run yet.
 - **Restores scrolling.** Schibsted locks `<body>` (`overflow: hidden; position: fixed`) while its dialog is "open." A second observer strips that lock's trigger class the moment it appears, and force-resets `overflow`/`position` on `<html>`, `<body>`, and `main#application`, but only when there's evidence the consent dialog is what applied the lock — other page features (e.g. video players) use the same styles legitimately and are left alone.
